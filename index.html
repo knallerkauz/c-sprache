@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>Mit Zahlen arbeiten in der C-Programmiersprache</title>
+  <style>
+    code
+    {
+      background-color: #eee;
+      border-radius: 3px;
+      padding: 0 3px;
+    }
+    .silver_1
+    {
+      background-color: #c0c0c0;
+    }
+  </style>
+</head>
+
+<body>
+  <p><h1 align="center">Mit Zahlen arbeiten in C</h1></p>
+  <ol>
+    <p><pre><code>#include &lt;stdio.h&gt;</code></pre></p>
+    <li>Eine oder mehrere <i>#include</i>-Anweisungen finden sich in fast jedem C-Programm wieder</li>
+    <li><i>#include</i> ist keine Porgrammansweisung, sondern eine sogenannte <a href="dateien_einfügen.html">Präprozessor-Direktive</a>.</li>
+    <li>Hinter diesem furchteinflößenden Wort verbirgt sich allerdings nichts Geheimnisvolles.</li>
+    <li>Bevor der eigentliche Kompiliervorgang beginnt, sucht der sogenannate Präprozessor nach dem Nummernzeichen (#).</li>
+    <li>Findet er dieses Zeichen, so weiß er, daß jetzt eine Anweisung für ihn folgt.</li>
+    <li>Das Wort <i>include</i> bedeutet nun, dass er die Datei, die danach in spitzen Klammern angegeben ist, an dieser Stelle in Ihr Programm einfügen soll.</li>
+    <li>Dieser Vograng lässt sich mit dem automatischen Einfügen von Textbausteinen bei einer Textverarbeitung vergleichen.</li>
+    <li>Im Beispiel soll die Datei <i>stdio.h</i> in den Porgrammtext einfgefügt werden.</li>
+    <li>Die <i>include</i>-Dateien, die an der Endung <i>h</i> zu erkennen sind, haben u.a. die Aufgabe, so genannte Prototypen in Ihr Programm einzubauen.</li>
+    <li>Das sind Definitionen, die vom Compiler benötigt werden, damit er die korrekte Verwendung der Bibliotheksfunktionen kontrollieren kann.</li>
+    <li>In ihrer Dokumentation ist zu jeder einzelnen Funktion angegeben, welche <i>include</i>-Datei von ihr benötigt wird.</li>
+  </ol>
+  <br>
+  <p>Bevor Sie weiterlesen, sollten Sie die folgende Aufgabe lösen.</p>
+  <br>
+  <table>
+    <tr>
+      <td class="silver_1"><b>Aufgabe 4</b></td>
+    </tr>
+    <tr>
+      <td>Welche <i>include</i>-Dateien werden für die Funktionen <i>strlen</i> (ermittelt die Länge einer Zeichenkette) und <i>getchar</i> (liest ein Zeichen von der Tastatur) benötigt?</td>
+    </tr>
+    <tr>  
+      <td>Benutzen Sie zur Lösung den Anhang dieser Seite.</td>
+    </tr>
+    <tr>
+      <td> Der steht <a href="anhang.html">hier</a>.</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <ol>
+    <p><pre><code>int x,y;</code></pre></p>
+    <li>In bspl0005.c sollen Werte während des Programmlaufs eingegeben werden.</li>
+    <li>Darum muß im Programm dafür gesorgt werden, daß die Werte gespeichert werden.</li>
+    <li>Diese Aufgabe wird von Variablen übernommen.</li>
+    <li>Bevor eine Variable das erste Mal verwendet werden kann, muß sie deklariert werden, das heißt, Typ und Name müssen festgelegt werden.</li>
+    <li>Die beiden Variablen <i>x</i> und <i>y</i> sind vom Typ Integer (Ganzzahl).</li>
+    <li>Sie werden durch das Schlüsselwort <i>int</i> gekennzeichnet.</li>
+    <li>Zuerst kommt also die Typbezeichnung, hier <i>int</i>, dann der Name der Variablen.</li>
+    <li>Werden mehrere Variablen vom gleichen Typ benötigt, können sie - durch Komma getrennt - hinter dem Schlüsselwort aufgezählt werden.</li>
+  </ol>
+  <br>
+  <br>
+  <ol>
+    <p><pre><code>printf("\n\t1. Rechenprogramm\n");</code></pre></p>
+    <li>In deiser Zeile wird die Escapesequenz \t verwendet.</li>
+    <li>Der Buschstabe <i>t</i> steht für <i>Tabulator</i> und bewegt den Cursor um jeweils acht Stellen nach rechts.</li>
+    <li>Der Tabulator ist hier benutzt worden, um die Überschrift ungefähr in die Mitte der Zeile zu positionieren.</li>
+  </ol>
+  <br>
+  <br>
+  <ol>
+    <p><pre><code>scanf("%i",&x);</code></pre></p>
+    <li>Die Funktion <i>scanf</i> dient der Eingabe von Daten und verfügt über ähnliche Parameter wie <i>printf</i>.</li>
+    <li>Zuerst kommt eine Zeichenkette mit einem Platzhalter <i>(%i)</i> für die einzugebende Variable und dahinter die Variable selbst (<i>x</i> bzw. <i>y</i>) mit vorangestelltem &.</li>
+    <li>Die genaue Bedeutung des &-Zeichens vor der Variablen zu erklären würde an dieser Stelle zu weit führen.</li>
+    <li>Dieser Punkt wird ausführlich <a href="adressen.html">unter Adressen</a> besprochen.</li>
+    <li>Hier mag genügen, daß das &-Zeichen die Adresse einer Variablen liefert.</li>
+  </ol>
+  <br>
+  <br>
+</body>
+</html>
+
+
+
