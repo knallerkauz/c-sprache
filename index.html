@@ -12,14 +12,44 @@
     {
       background-color: #c0c0c0;
     }
+    div
+    {
+      background-color: #eee;
+      border: 1px solid;
+      vertical-align: left;
+      top: center; 
+    }
   </style>
 </head>
 
 <body>
+  <br>
   <p><h1 align="center">Mit Zahlen arbeiten in C</h1></p>
+  <br>
+  <br>
+  <div><pre><code>
+  /* prozentzeichen.c */
+  #include &lt;stdio.h&gt;
+  
+  main()
+  {
+    int x,y;
+    printf("\n\t1. Rechenprogramm\n");
+    printf("\nBitte x eingeben :");
+    scanf("%i",&x);
+    printf("Bitte y eingeben: ");
+    scanf("%i",&y);
+    printf("\n %i + %i ist %i",x,y,x+y);
+    printf("\n %i - %i ist %i",x,y,x-y);
+    printf("\n %i * %i ist %i",x,y,x*y);
+    printf("\n %i %% %i ist %i",x,y,x%y);
+  }
+  </code></pre></div>
+  <br>
+  <br>
   <ol>
     <p><pre><code>#include &lt;stdio.h&gt;</code></pre></p>
-    <li>Eine oder mehrere <i>#include</i>-Anweisungen finden sich in fast jedem C-Programm wieder</li>
+    <li>Eine oder mehrere <i>#include</i>-Anweisungen finden sich in fast jedem C-Programm wieder.</li>
     <li><i>#include</i> ist keine Porgrammansweisung, sondern eine sogenannte <a href="dateien_einfügen.html">Präprozessor-Direktive</a>.</li>
     <li>Hinter diesem furchteinflößenden Wort verbirgt sich allerdings nichts Geheimnisvolles.</li>
     <li>Bevor der eigentliche Kompiliervorgang beginnt, sucht der sogenannate Präprozessor nach dem Nummernzeichen (#).</li>
@@ -78,6 +108,16 @@
     <li>Die genaue Bedeutung des &-Zeichens vor der Variablen zu erklären würde an dieser Stelle zu weit führen.</li>
     <li>Dieser Punkt wird ausführlich <a href="adressen.html">unter Adressen</a> besprochen.</li>
     <li>Hier mag genügen, daß das &-Zeichen die Adresse einer Variablen liefert.</li>
+  </ol>
+  <br>
+  <br>
+  <ol>
+    <p><pre><code>printf("\n%i %% %i ist i%",x,y,x%y);</code></pre></p>
+    <li>Hier soll von <i>printf</i> innerhalb des Textes das %-Zeichen ausgegeben werden.</li>
+    <li>Da es jedoch die Platzhalter für Variablen kennzeichnet, muß man für seine Anzeige %% benutzen.</li>
+    <li>Durch <i>x</i>%<i>y</i> wird eine sogenannte Modulo-Operation oder auch Divisionsrestberechnung ausgeführt.</li>
+    <li>Das Ergebnis ist 0, weil sich 12 glatt durch 3 teilen läßt.</li>
+    <li>Bei <i>13</i>%<i>3</i> lautet es 1, <i>14</i>%<i>3</i> liefert 2 und <i>15</i>%<i>3</i> wieder 0.</li>
   </ol>
   <br>
   <br>
