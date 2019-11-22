@@ -2,38 +2,93 @@
 <head>
   <title>Prototypen in der C-Programmiersprache</title>
   <style>
+    .code
+    {
+    font-family: Courier, monospace;
+    background-color: #eee;		
+    width: 400px;
+    padding-top: 0.5px;
+    padding-left: 10px;	
+    padding-right: 100;
+    font-size: 13; 
+    }
+    div
+    {
+    background-color: #eee;
+    border: 1px solid;
+    }
+    pre
+    {
+    counter-reset: line;
+    } 
     code
     {
       background-color: #eee;
       border-radius: 3px;
       padding: 0 3px;
+      counter-increment: line;
+    }
+    code::before
+    {
+    content: counter(line);
+    -webkit-user-select: none;
     }
   </style>
 </head>
 
 <body>
+<br>
+<br>
 <h1 align="center">Prototypen</h1>
-<ol>
-  <li>Bei allen Programmen dieses Kapitels befinden sich die definierten Funktionen jeweils vor <i>main</i>.</li>
+<br>
+<br>
+<ul>
+  <li>Bei allen Programmen dieses Themas befinden sich die definierten Funktionen jeweils vor <i>main</i>.</li>
   <li>Diese Aufteilung - zuerst die Funktionen, dann das Hauptprogramm <i>main</i> - ist jedoch nicht zwingend vorgeschrieben.</li>
   <li>Sie können die Reihenfolge prinzipiell beliebig wählen.</li>
   <li>Dabei sind allerdings einige Besonderheiten zu beachten.</li>
   <li>Das folgende Programm dient der Erläuterung der dabei auftretenden Probleme.</li>
-</ol>
-<figure>
-  <figcaption align="center">bspl</figcaption> 
-  <pre>
-    <code>
-      #include &lt;stdio.h&gt; 
-      int main(void)                   
-      {                        
-        int x,y;               
-        printf("\nBitte ..."); 
-      }                          
-    </code>
-  </pre>  
-</figure>
-           
-</body>
+</ul>
+<br>
+<br>
+<div><pre>
+ <code>  /* fehler.c */</code>
+ <code>  #include &lt;stdio.h&gt;</code> 
+ <code>  &nbsp;</code>
+ <code>  int main(void)</code>                   
+ <code>    { /* Dieses Programm erzeugt Fehler! */</code>                       
+ <code>      double x=4711.0,y=11.0;</code>               
+ <code>      printf("\nErgebnis = %f ",func(x,y));</code>
+ <code>    }</code>
+ <code>  &nbsp;</code>
+<code>  double func(double x, double y)</code>
+<code>    {</code> 
+<code>      return(y/x);</code>
+<code>    }</code>
+</pre></div>
+<br>
+<ul>
+  <li>Wie Sie dem Kommentar im Programm entnehmen können, treten bei <i>fehler.c</i> Probleme auf.</li>
+  <li>Je nach Compiler wird ein <i>redefinition error</i> gemeldet oder beispielsweise auch 0.000000 angezeigt.</li>
+  <li>Die Ursache hierfür soll untersucht werden.</li>
+</ul>
+<br>
+<div class="code"><p class="code">7&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  printf("\nErgebnis = %f ",func(x,y));</p></div>
+<ul>
+  <li>Beim Übersetzen arbeitet sich der Compiler von oben nach unten durch das Programm.</li>
+  <li>Hier trifft er nun auf die Function <i>func</i>.</li>
+  <li>Da er diese noch nicht kennt, nimmt er standardmäßig an, daß sie den Rückgabetyp <i>int</i> hat.</li>
+</ul>
+<br>
+<br>
+<div class="code"><p class="code">10&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;double func(double x, double y)</p></div>
+<ul>
+  <li>Im weiteren Verlauf erreicht er dann die Definition der Funktion <i>func</i>, allerdings mit dem Rückgabetyp <i>double</i>.</li>
+  <li>Wenn der Compiler dies akzeptiert, dann treten zur Laufzeit Fehler auf.</li>
+  <li>Denn der zurückgebende <i>double</i>-Wert (8 Bytes) wird jetzt als <i>int</i>-Zahl (2 bzw. 4 Bytes) interpretiert.</li>
+</ul>
+<br>          
 
+</body>
+<p align="center"><a href="dateien_einfügen.html">Previous</a>&nbsp; &nbsp; &nbsp;<a href="index.html">Home</a></p>
 </html>
