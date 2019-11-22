@@ -1,23 +1,94 @@
-<html>
-<head>
-  <title>Dateien einfügen</title>
-
-<body>
-  <h1 align="center">Dateien einfügen in C</h1>
-  <ol>
-    <li>Die wohl wichtigste Direktive für den Präprozessor ist <i>#include</i>.</li>
-    <li>Mit ihrer Hilfe werden die Inhalte bestehender Dateien wie Textbausteine in das Programm eingefügt.</li>
-    <li>Dabei handelt es sich normalerweise um sogenannte Headerdateien, die <a href="prototypen.html">die Prototypen der Bibliotheksfunktionen</a> enthalten.
-  </ol>
-  <br>
-  <ol>
-    <li>Das folgende Beispiel zeigt nun, wie man eigene Headerdateien einsetzen kann.</li>
-    <li>Es handelt sich dabei um das bereits bekannte Programm <i>bspl0035.c</i> aus <a href="prototypen.html">Prototypen</a>.</li>
-  </ol>
-  <br>
-</body>
-</head>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dateien einfügen</title>
+    <style>
+      .code
+      {
+      font-family: Courier, monospace;
+      background-color: #eee;
+      width: 400px;
+      padding-top: 0.5px;
+      padding-left: 10px;
+      padding-right: 100;
+      font-size: 13;
+      }
+      div
+      {
+      background-color: #eee;
+      border: 1px solid;
+      }
+      pre
+      {
+      counter-reset: line;
+      }
+      code
+      {
+      counter-increment: line;
+      border-radius: 3px;
+      padding: 0 3px;
+      background-color: #eee;
+      }
+      code::before
+      {
+      content: counter(line);
+      -webkit-user-select: none;
+      }
+    </style>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1 align="center">Dateien einfügen in C</h1>
+    <ol>
+      <li>Die wohl wichtigste Direktive für den Präprozessor ist <i>#include</i>.</li>
+      <li>Mit ihrer Hilfe werden die Inhalte bestehender Dateien wie Textbausteine in das Programm eingefügt.</li>
+      <li>Dabei handelt es sich normalerweise um sogenannte Headerdateien, die <a href="prototypen.html">die Prototypen der Bibliotheksfunktionen</a> enthalten.
+    </ol>
+    <br>
+    <ol>
+      <li>Das folgende Beispiel zeigt nun, wie man eigene Headerdateien einsetzen kann.</li>
+      <li>Es handelt sich dabei um das bereits bekannte Programm <i>fehler.c</i> aus <a href="prototypen.html">Prototypen</a>.</li>
+    </ol>
+    <br>
+    <ul>
+      <li>Als erstes erstellen Sie eine neue Datei mit dem Prototypen und speichern diese beispielsweise als <i>funktionsprototyp.h</i>.</li>
+    </ul>
+    <br>
+    <div><pre>
+    <code>   /* funktionsprototyp.h */</code>
+    <code>   double func(double, double);</code>
+    </pre></div>
+    <br>
+    <br>
+    <ul>
+      <li>Headerdateien erhalten üblicherweise die Endung <i>.h</i> und dürfen keinen ausführbaren Code enthalten, sondern nur Deklarationen.</li>
+      <li>Dies liegt daran, daß sie unter Umständen in mehrere C-Dateien eingefügt und damit mehrfach übersetzt werden.</li>
+      <li>Enthielten sie fertige Funktionen, dann lägen die hinterher für den Linker mehrfach vor.</li>
+      <li>Dadurch kann er keine eindeutige Bindung herstellen.</li>
+    </ul>
+    <br>
+    <ul>
+      <li>Danach entfernen Sie den Prototypen aus dem C-Programm und benutzen die <i>#include</i>-Direktive, um die erstellte Datei einzufügen.</li>
+    </ul>
+    <br>
+    <div><pre>
+    <code>   /* funktionsprototyp.c */</code>
+    <code>   #include &lt;stdio.h&gt;</code>
+    <code>   #include "funktionsprototyp.h"</code>
+    <code>   &nbsp;</code>
+    <code>   int main()</code>
+    <code>   {</code>
+    <code>   double x=4711.0,y=11.0;</code>
+    <code>   printf("\nErgegnis = %f ",func(x,y));</code>
+    <code>   }</code>
+    <code>   &nbsp;</code>
+    <code>   double func(doublex, double y)</code>
+    <code>   {</code>
+    <code>     return(y,x);</code>
+    <code>    }</code>
+    </pre></div>
+    <p align="center"><a href="index.html">Home</a></p>
+  </body>
 </html>
 
 
