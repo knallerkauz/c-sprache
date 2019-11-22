@@ -2,9 +2,33 @@
 <head>
   <title>Adressen</title>
   <style>
-    .silver_1
+    div
     {
-      background-color: #c0c0c0;
+      background-color: #eee;
+      border: 1px solid;
+      vertical-align: center;
+      text-align: left;
+      left-padding: 5px;
+    }
+    pre
+    {
+    counter-reset: line;
+    }
+    code
+    {
+    border-radius: 3px;
+    padding: 0 3px;
+    counter-increment: line;
+    }
+    code::before
+    {
+    padding-right: 5px;
+    padding-left:  5px;
+    border-radius: 1px;
+    border: 0.5px solid;
+    text-align: center;
+    content: counter(line);
+    -webkit-user-select: none;
     }
   </style>
 </head>
@@ -19,28 +43,26 @@
   <br>
   <br>
   <p>Das folgende kleine Programm soll demonstrieren, wie man diese Speicheradressen ermittelt.</p>
-  <table>
-    <tr>
-      <td>/* bspl0060.c */</td>
-    </tr>
-    <tr>
-      <td>*include &lt;stdio.h&gt;</td>
-    </tr>
-    <tr>
-      <td><br> </td>
-    </tr>
-    <tr>
-      <td>int main()</td>
-    </tr>
-    <tr>
-      <td>{</td>
-    </tr>
-    <tr>
-      <td class="silver_1">int a=16, b=22;</td>
-    </tr>
-    <tr>
-      <td>double c=10.0, d=234.52;</td>
-    </tr>
-  </table>
+  <div><pre>
+ <code>   /* bspl0060.c */</code>
+ <code>   #include &lt;stdio.h&gt;</code>
+ <code>   &nbsp;</code>
+ <code>   int main()</code>
+ <code>   {</code>
+ <code>     int a=16, b=22;</code>
+ <code>     double c=10.0, d=234.52;</code>
+ <code>     printf("\nAdresse von a = %u  ",&a);</code>
+ <code>     printf("Wert von a      = %i  ",a);</code>
+<code>     printf("\nAdresse von b = %u  ",&b);</code>
+<code>     printf("Wert von b      = %i  ",b);</code>
+<code>     printf("\nAdresse von c = %u  ",&c);</code>
+<code>     printf("Wert von c      = %f ",c);</code>
+<code>     printf("\nAdresse von d = %u  ",&d);</code>
+<code>     printf("Wert von d      = %f ",d);</code>
+<code>    }</code>
+  </div></pre>
+<br>
+<br>
+<p align="center"><a href="index.html">Home</a></p>
 </body>
 </html>
