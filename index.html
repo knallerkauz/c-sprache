@@ -12,6 +12,10 @@
     {
       background-color: #c0c0c0;
     }
+    .anchor
+    {
+      text-align: center;
+    }
     div
     {
       background-color: #eee;
@@ -61,7 +65,8 @@
     printf("\n %i + %i ist %i",x,y,x+y);
     printf("\n %i - %i ist %i",x,y,x-y);
     printf("\n %i * %i ist %i",x,y,x*y);
-    printf("\n %i %% %i ist %i",x,y,x%y);
+    printf("\n %i / %i ist %i",x,y,x/y);
+    printf("\n %i %% %i ist %i\n\n",x,y,x%y);
   }
   </code></pre></div>
   <br>
@@ -156,6 +161,86 @@
     <li>Das Ergebnis ist 0, weil sich 12 glatt durch 3 teilen läßt.</li>
     <li>Bei <i>13</i>%<i>3</i> lautet es 1, <i>14</i>%<i>3</i> liefert 2 und <i>15</i>%<i>3</i> wieder 0.</li>
   </ol>
+  <br>
+  <br>
+  <p>Starten Sie jetzt das Programm nochmals, und geben Sie für <i>x</i> 125 und für <i>y</i> 25 ein.</p>
+  <p>Sie erhalten als Anzeige dann:</p>
+  <br>
+  <pre>
+          1 .  R e c h e n p r o g r a m m
+  
+  Bitte x eingeben :125
+  Bitte y eingeben :25
+
+   125 + 25 ist 150
+   125 - 25 ist 100
+   125 * 25 ist 3125
+   125 / 25 ist 5
+   125 % 25 ist 0
+  </pre>
+  <br>
+  <br>
+  <p>Auch diese Ergebnisse sind richtig.</p>
+  <p>Das Programm scheint korrekt zu funktionieren.</p>
+  <p>Machen Sie noch einen letzten Test: Geben Sie diesmal für <i>x</i> 300 und für <i>y</i> 200 ein.</p>
+  <p>Je nach Computersystem erhalten Sie eine der folgenden Anzeigen.</p>
+  <br>
+  <p>Auf einem 32-Bit-Rechner sehen Sie:</p>
+  <pre>
+          1 .  R e c h e n p r o g r a m m
+  
+  Bitte x eingeben :300
+  Bitte y eingeben :200
+
+   300 + 200 ist 500
+   300 - 200 ist 100
+   300 * 200 ist 60000
+   300 / 200 ist 1
+   300 % 200 ist 100
+  </pre>
+  <br>
+  <p>Auf einem 16-Bit-System liefert das Programm dagegen:</p>
+  <pre>
+          1 .  R e c h e n p r o g r a m m
+  
+  Bitte x eingeben :300
+  Bitte y eingeben :200
+
+   300 + 200 ist 500
+   300 - 200 ist 100
+   300 * 200 ist -5536
+   300 / 200 ist 1
+   300 % 200 ist 100 
+  </pre>
+  <br>
+  <ul>
+    <li>Die Ergebnisse für Addition und Subtraktion sind zwar immer noch richtig, bei der Multiplikation und der Division sind die Ergebnisse jedoch augenscheinlich teilweise falsch.</li>
+    <li>Woran liegt das?</li>
+  </ul>
+  <ul>
+    <li>Sie hatten die Variablen <i>x</i> und <i>y</i> als Typ <i>int</i> deklariert.</li>
+    <li>Das bedeutet, daß diese Variablen nur ganze Zahlen aufnehmen können.</li>
+    <li>Die Division von 300/200 ergibt aber 1.5.</li>
+    <li>(Beachten Sie bitte, daß C - wie andere Programmiersprachen auch - einen Punkt als Dezimalzeichen verwendet.)</li>
+    <li>Da also Integer-Variablen nur ganze Zahlen speichern können, geht der Dezimalanteil verloren.</li> 
+    <li>Damit wird die Ausgabe <i>300/200 ist 1</i> verständlich.</li>
+  </ul>
+  <ul>
+    <li>Das erklärt allerdings noch immer nicht, warum 300*200 auf 16-Bit-Computern -5536 ergeben soll.</li>
+    <li>Aber auch für dieses Verhalten liegt der Grund in dem gewählten Variablentyp.</li>
+    <li>Integer-Zahlen haben nämlich bei 16-Bit-Computern einen Wertebereich, der nur die Darstellung der Zahlen von -32 768 bis 32 767 erlaubt (2<sup>16</sup> = 65 536 Werte.)</li>
+    <li>Bei 32-Bit-Rechnern reicht er dagegen von -2 147 483 648 bis 2 147 483 647 (2<sup>32</sup> = 4 294 967 296 werte).</li>
+    <li>Da 300*200 aber bereits 60 000 ergibt, kommt es zu diesem seltsamen Ergebnis.</li>
+    <li>Der tiefere Grund dafür, daß gerade -5536 herauskommt, liegt in der internen Darstellungsform für negative und positive Dualzahlen.</li>
+    <li>Die ausführliche Erklärung würde hier zu weit führen.</li>
+  </ul>
+  <ul>
+    <li>Sie sollten sich an dieser Stell aber merken, daß Sie als Programmierer dafür verantwortlich sind, daß der Wertebereich der Integer-Zahlen nicht überschritten wird.</li>
+    <li>Sie sollten sie trotzdem so oft wie möglich verwenden, da sie die &laquo;natürlichsten&raquo; Zahlen für einen Computer sind.</li>
+    <li>Der Rechner kann mit diesen Zahlen am effektivsten, das heißt am schnellsten arbeiten.</li>
+  </ul>
+  <p align="center"><a href="#top">Top of Page</a></p>
+  <br>
   <br>
   <br>
 </body>
