@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Mit Zahlen arbeiten in der C-Programmiersprache</title>
@@ -24,6 +25,7 @@
       top: center; 
     }
   </style>
+  <meta charset="utf-8">
 </head>
 
 <body>
@@ -31,6 +33,10 @@
   <p><h1 align="center">Mit Zahlen arbeiten in C</h1></p>
   <br>
   <br>
+  <p align="center"><a href="#ganzen_zahlen">Mit ganzen Zahlen rechnen</a>&nbsp;&nbsp;&nbsp;<a href="#fließkomma-zahlen">Fließkomma-Zahlen</a></p>
+  <br>
+  <br>
+  <p><h2 id="ganzen_zahlen", align="center">Mit ganzen Zahlen rechnen</h2></p>
   <ul>
     <li>Im vorherigen Abschnitt haben Sie die Grammatik (Syntax) eines C-Programms kennengelernt und mit Hilfe der Funktion <i>printf</i> erste Berechnungen durchgeführt.</li>
     <li>Die Beispielprogramme hatten allerdings den Nachteil, daß für jeden neuen Zahlenwert das Programm neu übersetzt werden mußte.</li>
@@ -80,7 +86,7 @@
   Bitte x eingeben :12
   Bitte y eingeben :3
 
-   12 + 3 it 15
+   12 + 3 ist 15
    12 - 3 ist 9
    12 * 3 ist 36
    12 / 3 ist 4
@@ -235,10 +241,70 @@
     <li>Die ausführliche Erklärung würde hier zu weit führen.</li>
   </ul>
   <ul>
-    <li>Sie sollten sich an dieser Stell aber merken, daß Sie als Programmierer dafür verantwortlich sind, daß der Wertebereich der Integer-Zahlen nicht überschritten wird.</li>
+    <li>Sie sollten sich an dieser Stelle aber merken, daß Sie als Programmierer dafür verantwortlich sind, daß der Wertebereich der Integer-Zahlen nicht überschritten wird.</li>
     <li>Sie sollten sie trotzdem so oft wie möglich verwenden, da sie die &laquo;natürlichsten&raquo; Zahlen für einen Computer sind.</li>
     <li>Der Rechner kann mit diesen Zahlen am effektivsten, das heißt am schnellsten arbeiten.</li>
   </ul>
+  <br>
+  <p><h2 id="fließkomma-zahlen", align="center">Fließkomma-Zahlen</h2></p>
+  <ul>
+    <li>Die Verwendug von Ganzzahlen ist auf den genanntn Wertebereich begrnzt, außerdem können ebn nur ganze Zahlen dargestellt werden.</li>
+    <li>Sollen größere Zahlen oder Zahlen mit Nachkommastellen verwendet werden, müssen Sie andere Variablentypen benutzen.</li>
+    <li>Im nachstehenden Programm wird der Typ <i>float</i> vorgestellt, der einen Wertebereich von 1.17549 * 10 hoch -38 bis 3.40 282 * hoch 38 darstellen kann.</li>
+    <li>Für negative Zahlen gilt das gleiche.</li>
+    <li>Ausgeschrieben lauten diese Zahlen 0,0000000000000000000000000000000000000117549 und 340282000000000000000000000000000000000.</li>
+    <li>Das dürfte fürs erste ausreichen.</li>
+  </ul>
+  <br>
+  <div>
+  <p><i>Hinweis:</i></p>
+  <p>Sie können sich beim folgdenden Beispiel viel Tipparbeit ersparen, wenn Sie das letzte Programm überschreiben.</p>
+  <p>Sie müssen nur <i>int</i> gegen <i>float</i> und alle <i>%i</i> gegen <i>%f</i> austauschen.</p>
+  <p>Außerdem müssen Sie die letzte <i>printf</i>-Anweisung mit der Modulo-Operation entfernen.</p>
+  </div>
+  <br>
+  <br>
+  <div><pre><code>
+  /* fließkommazahlen.c */
+  #include &lt;stdio.h&gt;
+  
+  main()
+  {
+    float x,y;
+    printf("\n\t2 .  R e c h e n p r o g r a m m\n");
+    printf("\nBitte x eingeben :");
+    scanf("%f",&x);
+    printf("Bitte y eingeben: ");
+    scanf("%f",&y);
+    printf("\n %f + %f ist %f",x,y,x+y);
+    printf("\n %f - %f ist %f",x,y,x-y);
+    printf("\n %f * %f ist %f",x,y,x*y);
+    printf("\n %f / %f ist %f",x,y,x/y);
+  }
+  </code></pre></div>
+  <br>
+  <p>Geben Sie jetzt wieder für <i>x</i> 300 und für <i>y</i> 200 ein.</p>
+  <br>
+  <pre>
+          2 .  R e c h e n p r o g r a m m
+  
+  Bitte x eingeben :300
+  Bitte y eingeben :200
+
+   300.000000 + 200.000000 ist 500.000000
+   300.000000 - 200.000000 ist 100.000000
+   300.000000 * 200.000000 ist 60000.000000
+   300.000000 / 200.000000 ist 1.500000
+  </pre>
+  <br>
+  <ul>
+    <li>In diesem Programm sind die Variablen <i>x</i> und <i>y</i> vom Typ <i>float</i>; sie können somit auch große Zahlen und Zahlen mit Nachkommastellen aufnehmen.</li>
+    <li>Damit die Ausgabe dieser Zahlen auch richtig erfolgt, haben Sie in der Funktion <i>printf</i> den Platzhalter <i>%i</i> verwendet.</li>
+    <li>Standardmäßig werden dabei sechs Nachkommastellen angezeigt.</li>
+    </ul>
+  <br>
+    <p>Divisionsrestberechnungen wie in <i>prozentzeichen.c</i> machen bei Variablen vom Typ <i>float</i> keinen Sinn, denn jetzt wird ja dezimalstellengenau gerechnet.</p>
+  <br> 
   <p align="center"><a href="#top">Top of Page</a></p>
   <br>
   <br>
