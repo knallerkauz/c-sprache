@@ -9,6 +9,10 @@
       border-radius: 3px;
       padding: 0 3px;
     }
+    .silver_0
+    {
+      background-color: #d8d8d8;
+    }
     .silver_1
     {
       background-color: #c0c0c0;
@@ -33,7 +37,7 @@
   <p><h1 align="center">Mit Zahlen arbeiten in C</h1></p>
   <br>
   <br>
-  <p align="center"><a href="#ganzen_zahlen">Mit ganzen Zahlen rechnen</a>&nbsp;&nbsp;&nbsp;<a href="#fließkomma-zahlen">Fließkomma-Zahlen</a></p>
+  <p align="center"><a href="#ganzen_zahlen">Mit ganzen Zahlen rechnen</a>&nbsp;&nbsp;&nbsp;<a href="#fließkomma-zahlen">Fließkomma-Zahlen</a>&nbsp;&nbsp;&nbsp;<a href="#formatierte_zahlenausgabe">Formatierte Zahlenausgabe</a>&nbsp;&nbsp;&nbsp;<a href="#ein_additionsprogramm">Ein Additonsprogramm</a>&nbsp;&nbsp;&nbsp;<a href="#zusammenfassung">Zusammenfassung</a>&nbsp;&nbsp;&nbsp;<a href="#uebungen">Übungen</a></p>
   <br>
   <br>
   <p><h2 id="ganzen_zahlen", align="center">Mit ganzen Zahlen rechnen</h2></p>
@@ -248,7 +252,7 @@
   <br>
   <p><h2 id="fließkomma-zahlen", align="center">Fließkomma-Zahlen</h2></p>
   <ul>
-    <li>Die Verwendug von Ganzzahlen ist auf den genanntn Wertebereich begrnzt, außerdem können ebn nur ganze Zahlen dargestellt werden.</li>
+    <li>Die Verwendug von Ganzzahlen ist auf den genannten Wertebereich begrenzt, außerdem können eben nur ganze Zahlen dargestellt werden.</li>
     <li>Sollen größere Zahlen oder Zahlen mit Nachkommastellen verwendet werden, müssen Sie andere Variablentypen benutzen.</li>
     <li>Im nachstehenden Programm wird der Typ <i>float</i> vorgestellt, der einen Wertebereich von 1.17549 * 10 hoch -38 bis 3.40 282 * hoch 38 darstellen kann.</li>
     <li>Für negative Zahlen gilt das gleiche.</li>
@@ -304,6 +308,78 @@
     </ul>
   <br>
     <p>Divisionsrestberechnungen wie in <i>prozentzeichen.c</i> machen bei Variablen vom Typ <i>float</i> keinen Sinn, denn jetzt wird ja dezimalstellengenau gerechnet.</p>
+  <br>
+  <p><h2 id="formatierte_zahlenausgabe", align="center">Formatierte Zahlenausgabe</h2></p>
+  <br>
+  <p>Das bisher Gelernte sollen Sie nun an einem Programm zur Umrechnung von Währungen ausprobieren.</p>
+  <br>
+  <br>
+  <div><pre><code>
+  /* waehrungsrechnen.c */
+  #include &lt;stdio.h&gt;
+  
+  main()
+  {
+    float u_faktor,betrag;
+    printf("\n\tW a e h r u n g s r e c h n e n\n");
+    printf("\nBitte Umrechnungsfaktor eingeben: ");
+    scanf("%f",&u_faktor);
+    printf("Bitte DM-Betrag eingeben: ");
+    scanf("%f",&betrag);
+    printf("\n%.2f DM entsprechen ",betrag);
+    printf("%.2f in der Fremdwaehrung.",betrag*u_faktor);
+  }
+  </code></pre></div>  
+  <br>
+  <p>Geben Sie als Umrechnungsfaktor 0.345 und als DM-Betrag 100 ein.</p>
+  <p>Beachten Sie, daß die Nachkommastellen mit einem Punkt abgetrennt werden!</p>
+  <br>
+  <pre>
+          W a e h r u n g s r e c h n e n
+  
+  Bitte Umrechnungsfaktor eingeben: 0.345
+  Bitte DM-Betrag eingeben: 100
+
+  100.00 DM entsprechen 34.50 in der Fremdwaehrung.
+  </pre>
+  <br>
+  <ul>
+    <p><pre><code>printf("\n%.2f DM entsprechen ",betrag);</code></pre></p>  
+    <li>Wenn Sie sich die Ausgabe des vorletzten Programms (<i>fließkommazahlen.c</i>) ansehen, werden Sie feststellen, daß jede Zahl mit sechs Nachkommastellen ausgegeben wurde.</li>
+    <li>In diesem Programm werden die Währungsbeträge jedoch mit nur zwei Stellen angezeigt.</li>
+    <li>Sie haben sicher bemerkt, welche Formulierung in <i>printf</i> das bewirkt.</li>
+    <li>Die Angabe <i>.2</i> hinter dem Prozentzeichen legt das Format der Zahl fest und bedeutet &laquo;zeige die Zahl mit zwei Nachkommastellen an&raquo;.</li>
+  </ul>
+  <br>
+  <p>Untersuchen Sie, wie <i>printf</i> die Zahlen rundet, indem Sie als Umrechnungsfaktor 0.3245 bzw. 0.3246 und als Betrag jedesmal 10 eingeben.</p>
+  <br>
+  <p>Zum Abschluß dieses Kapitels noch zwei <i>Hinweise</i>:</p>
+  <p class="silver_0">Variablennamen dürfen maximal <b>31 Stellen</b> lang sein.</p>
+  <ul>
+    <li>Sie können aus den Buschstaben A-Z und a-z, Ziffern und dem Unterstrich (_) bestehen.</li>
+    <li>Ziffern dürfen jedoch nicht am Anfang stehen.</li> 
+    <li>Innerhalb dieser Grenzen bleibt Ihnen die Wahl der Variablennamen freigestellt.</li>
+    <li>Sie sollten allerdings solche Namen wählen, die etwas über den Inhalt der Variable aussagen.</li>
+    <li>So ist es zwar durchaus erlaubt, <i>x1</i>, <i>ac3</i>, <i>mma</i> usw. als Namen zu verwenden, <i>summe</i>, <i>umsatz</i> oder <i>taste</i> sind jedoch viel leichter zu merken.</li>
+    <li>Wenn Sie ins andere Extrem verfallen und die Namen zu lang machen, bringt das auch Probleme mit sich, da beim Schreiben der Variablennamen häufiger Fehler unterlaufen können.</li>
+  </ul>
+  <p class="silver_0">Die in den bisherigen Programmen verwendete Kleinschreibung ist nicht zufällig gewählt.</p> 
+  <ul>
+    <li>C ist &rsaquo;case-sensitive&lsaquo;, das heißt, es wird zwischen Groß- und Kleinschreibung unterschieden.</li>
+    <li>Mit <i>Bereich</i>, <i>bereich</i> und <i>beReich</i> definieren Sie daher drei verschiedene Variablen.</li> 
+    <li>Alle Bibliotheksfunktionen müssen in Kleinbuchstaben eingegeben werden.</li>
+    <li>Haben Sie sich verschrieben und statt <i>printf</i> <i>Printf</i> geschrieben, wird Sie der Compiler (genaugenommen ist es in diesem Fall der Linker) nachdrücklich auf diesen Fehler aufmerksam machen.</li>
+    <li>Bei selbstdefinierten Vaiablen und Funktionen können Sie die Schreibweise selbsst wählen.</li>
+    <li>Üblicherweise werden C-Programme jedoch fast durchgehend klein geschrieben.</li>
+  </ul>
+  <br>
+  <p><h2 id="ein_additionsprogramm", align="center">Ein Additonsprogramm</h2></p>
+  <br>
+  <p><h2 id="zusammenfassung", align="center">Zusemmenfassung</h2></p>
+  <br>
+  <p><h2 id="uebungen", align="center">Übungenen</h2></p>
+  <br>
+  <br>
   <br> 
   <p align="center"><a href="#top">Top of Page</a></p>
   <br>
