@@ -375,10 +375,142 @@
   <br>
   <p><h2 id="ein_additionsprogramm", align="center">Ein Additonsprogramm</h2></p>
   <br>
-  <p><h2 id="zusammenfassung", align="center">Zusemmenfassung</h2></p>
+  <ul>
+    <li>In den bisher vorgestellten Programmen haben Sie sämtliche Berechnungen von der Funktion <i>printf</i> durchführen lassen.</li>
+    <li>Das funktionierte auch einwandfrei.</li>
+    <li>Wie kann man sich diese errechneten Werte aber für die weitere Verwendung im Programm merken?</li>
+    <li>Denn <i>printf</i> berechnet ja das Ergebnis und gibt es dann sofort auf dem Bildschirm aus.</li>
+    <li>Damit kann man im weiteren Verlauf des Programms aber nichts mehr anfangen, da die Werte eben nur auf dem Bildschirm stehen und sonst nirgends.</li>
+    <li>Im folgdenden kleinen Additionsprogramm wird dieser Mißstand behoben.</li>
+  </ul>
   <br>
+  <div><pre><code>
+  /* additionsprogramm.c */
+  #include &lt;stdio.h&gt;
+  
+  main()
+  {
+    float summe=0.0,zahl;
+    printf("\n1. Zahl : ");
+    scanf("%f",&zahl);
+    summe=summe+zahl;
+    printf("2. Zahl : ");
+    scanf("%f",&zahl);
+    summe=summe+zahl;
+    printf("3. Zahl : ");
+    scanf("%f",&zahl);
+    summe=summe+zahl;
+    printf("\nEndergebnis = %.17f",summe);
+  }
+  </code></pre></div>
+  <br>
+  <p>Starten Sie das Programm, und geben Sie diese drei Werte ein:</p>
+  <pre>
+  
+  1. Zahl : 0.12345678901234567890
+  2. Zahl : 5
+  3. Zahl : 5 
+  </pre>
+  <br>
+  <p>Das Ergebnis sieht so aus:</p>
+  <pre>
+  Endergebnis = 10.12345695495605500
+  </pre>
+  <p>Wie es scheint, hat es der Computer bei dieser Rechnung nicht so genau genommen; ab der 7. Stelle weicht das Ergebnis von der Eingabe ab.</p>
+  <p>Schauen Sie sich zunächst einmal das Programm im einzelnen an.</p>
+  <ul>
+    <p><pre><code>float summe=0.0,zahl;</code></pre></p>
+    <li>Der Ausdruck <i>float summe=0.0</i> erledigt zwei Aufgaben auf einmal.</li>
+    <li>Als erstes deklariert er den Typ der Variablen <i>summe</i> als <i>float</i>; das kennen Sie bereits.</li>
+    <li> <i>summe</i> </li>
+    <li> <i>summe</i> </li>
+    <li> <i>summe</i>  </li>
+    <li> <i>summe</i>  </li>
+    <li> <i>summe</i>  </li>
+    <li></li>
+  </ul>
+  <ul>
+  <p><pre><code>summe=summe+zahl;</code></pre></p>
+    <li>In diesen Zeilen wird der Variablen <i>summe</i> ein neuer Wert zugewiesen.</li>
+    <li>Sollten Sie noch wenig Programmiererfahrung besitzen, wird Ihnen der Ausdruck <i>summe = summe + zahl</i> auf den ersten Blick etwas seltsam erscheinen.</li>
+    <li> <i>summe</i> </li>
+    <li> <i>summe</i> </li>
+    <li> <i>summe</i>  </li>
+    <li> <i>summe</i>  </li>
+    <li> <i>summe</i>  </li>
+    <li></li>
+  </ul>
+  <br>
+  <br>
+  <p><h2 id="zusammenfassung", align="center">Zusammenfassung</h2></p>
+  <br>
+  <p class="silver_0">.</p>
+  <ul>
+    <li>.</li>
+    <li>.</li>
+  </ul>
+  <p class="silver_0">gewählt.</p> 
+  <ul>
+    <li>.</li>
+    <li><i>Bereich</i>, <i>bereich</i> und <i>beReich</i> .</li> 
+    <li>werden.</li>
+    <li>statt <i>printf</i> <i>Printf</i> aufmerksam .</li>
+    <li>wählen.</li>
+    <li>geschrieben.</li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <p class="silver_0">.</p>
+  <ul>
+    <li></li>
+  </ul>
+  <br> 
   <p><h2 id="uebungen", align="center">Übungenen</h2></p>
   <br>
+  <p>Bevor Sie weiterlesen, sollten Sie die folgende Aufgabe lösen.</p>
+  <br>
+  <table>
+    <tr>
+      <td class="silver_1"><b>Aufgabe 5</b></td>
+    </tr>
+    <tr>
+      <td>Welche <i>include</i>-Dateien werden für die Funktionen <i>strlen</i> (ermittelt die Länge einer Zeichenkette) und <i>getchar</i> (liest ein Zeichen von der Tastatur) benötigt?</td>
+    </tr>
+    <tr>  
+      <td>Benutzen Sie zur Lösung den Anhang dieser Seite.</td>
+    </tr>
+    <tr>
+      <td> Der steht <a href="anhang.html">hier</a>.</td>
+    </tr>
+  </table>
+  <br>
+  <br>  
   <br>
   <br> 
   <p align="center"><a href="#top">Top of Page</a></p>
